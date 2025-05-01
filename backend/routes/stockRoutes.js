@@ -1,6 +1,5 @@
 import express from 'express';
 import oracledb from 'oracledb';
-
 import getConnection from '../config/db.js';
 
 const router = express.Router();
@@ -9,10 +8,11 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const connection = await getConnection();
-    const result = await connection.execute('SELECT * FROM stock');
+    const result = await connection.execute('SELECT * FROM stock_items'); // Corrected table name
     await connection.close();
     res.json(result.rows);
   } catch (err) {
+    console.error('Error fetching stock items:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -21,10 +21,11 @@ router.get('/', async (req, res) => {
 router.get('/orders', async (req, res) => {
   try {
     const connection = await getConnection();
-    const result = await connection.execute('SELECT * FROM stock_orders');
+    const result = await connection.execute('SELECT * FROM stock_orders'); // Corrected table name
     await connection.close();
     res.json(result.rows);
   } catch (err) {
+    console.error('Error fetching stock orders:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -35,7 +36,7 @@ router.get('/:id', async (req, res) => {
   try {
     const connection = await getConnection();
     const result = await connection.execute(
-      'SELECT * FROM stock WHERE stock_id = :id',
+      'SELECT * FROM stock_items WHERE item_id = :id', // Corrected table and column names
       { id }
     );
     await connection.close();

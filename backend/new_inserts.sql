@@ -6,9 +6,9 @@ INSERT INTO students (name, roll_no, room_no, hostel_name) VALUES ('Diana Prince
 INSERT INTO students (name, roll_no, room_no, hostel_name) VALUES ('Ethan Ray', 'BTECH005', 'E505', 'Newton');
 
 -- Inserting meal types
-INSERT INTO meal_types (name) VALUES ('Breakfast');
-INSERT INTO meal_types (name) VALUES ('Lunch');
-INSERT INTO meal_types (name) VALUES ('Dinner');
+INSERT INTO meal_types (name) VALUES ('Breakfast'); --1
+INSERT INTO meal_types (name) VALUES ('Lunch'); --2
+INSERT INTO meal_types (name) VALUES ('Dinner'); --3
 
 -- Inserting mess menu
 INSERT INTO mess_menu (meal_date, meal_type_id) VALUES (TO_DATE('2025-04-10', 'YYYY-MM-DD'), 1);

@@ -1,13 +1,42 @@
 // src/layouts/Layout.jsx
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import { FaHome, FaUsers, FaUtensils, FaFileInvoiceDollar, FaBoxOpen, FaRegListAlt, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import {
+  FaHome,
+  FaUsers,
+  FaUtensils,
+  FaFileInvoiceDollar,
+  FaBoxOpen,
+  FaRegListAlt,
+  FaClipboardList,
+  FaSignOutAlt,
+} from "react-icons/fa";
+
+
 
 const Layout = () => {
+  const location = useLocation();
+
+const pageTitles = {
+  "/dashboard": "Dashboard",
+  "/students": "Students",
+  "/meals": "Meals",
+  "/billing": "Billing",
+  "/menu": "Menu",
+  "/stock": "Stock",
+  "/suppliers": "Suppliers",
+  "/feedback": "Feedback",
+  "/leave": "Leave Requests",
+  "/profile": "Profile",
+  "/": "Dashboard",
+};
+
+const currentPath = location.pathname;
+const pageTitle = pageTitles[currentPath] || "Mess Management";
   return (
-    <div className="flex h-screen">
+    <div className="h-screen flex overflow-hidden">
       {/* Sidebar */}
-      <div className="bg-gray-800 text-white w-64 p-4">
+      <div className="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white p-4">
         <h2 className="text-2xl font-bold mb-8">Mess Management</h2>
         <nav>
           <ul>
@@ -65,20 +94,14 @@ const Layout = () => {
                 Leave Requests
               </Link>
             </li>
-            <li>
-              <Link to="/profile" className="flex items-center py-2">
-                <FaSignOutAlt className="mr-3" />
-                Profile
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
+      <div className="ml-64 flex-1 overflow-y-auto p-8">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold">{pageTitle}</h1>
           <button className="bg-red-600 text-white p-2 rounded-lg">Log out</button>
         </div>
         <div className="mt-8">

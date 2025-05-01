@@ -7,10 +7,10 @@ import Students from "./pages/Students";
 import Meals from "./pages/Meals";
 import Billing from "./pages/Billing";
 import Menu from "./pages/Menu";
-// import Stock from "./pages/Stock";
-// import Suppliers from "./pages/Suppliers";
-// import Feedback from "./pages/Feedback";
-// import LeaveRequests from "./pages/LeaveRequests";
+import Stock from "./pages/Stock";
+import Suppliers from "./pages/Suppliers";
+import Feedback from "./pages/Feedback";
+import LeaveRequests from "./pages/LeaveRequests";
 // import Profile from "./pages/Profile";
 
 const App = () => {
@@ -24,10 +24,10 @@ const App = () => {
           <Route path="/meals" element={<Meals />} />
           <Route path="/billing" element={<Billing />} />
           <Route path="/menu" element={<Menu />} />
-          {/* <Route path="/stock" element={<Stock />} /> */}
-          {/* <Route path="/suppliers" element={<Suppliers />} /> */}
-          {/* <Route path="/feedback" element={<Feedback />} /> */}
-          {/* <Route path="/leave" element={<LeaveRequests />} /> */}
+          <Route path="/stock" element={<Stock />} />
+          <Route path="/suppliers" element={<Suppliers />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/leave" element={<LeaveRequests />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
         </Route>
       </Routes>
